@@ -40,7 +40,7 @@ body {
   color: var(--text-primary);
   line-height: 1.5;
   overflow-x: hidden;
-  cursor: none;
+  cursor: default;
 }
 
 .app {
@@ -112,7 +112,7 @@ html {
 
 /* Interactive Elements */
 button, a, .interactive {
-  cursor: none;
+  cursor: default;
   position: relative;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

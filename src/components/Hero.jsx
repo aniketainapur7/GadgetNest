@@ -1,10 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { ArrowRight, Smartphone, Watch, Headphones } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import Hyperspeed from '../HyperSpeed'
 
 const Hero = ({ scrollY }) => {
   const [currentDevice, setCurrentDevice] = useState(0)
   const [titleScale, setTitleScale] = useState(1)
-  
+
+  const backgroundMemo = useMemo(() => <Hyperspeed />, [])
+
   const devices = [
     { icon: Smartphone, name: 'NovPhone X1', color: 'var(--primary)' },
     { icon: Watch, name: 'NovWatch Pro', color: 'var(--secondary)' },
@@ -26,6 +30,9 @@ const Hero = ({ scrollY }) => {
 
   return (
     <section id="home" className="hero">
+       <div className="hyperspeed-wrapper">
+        {backgroundMemo}
+      </div>
       <div className="hero-background">
         <div className="gradient-orb orb-1"></div>
         <div className="gradient-orb orb-2"></div>
@@ -36,7 +43,7 @@ const Hero = ({ scrollY }) => {
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
-              <span 
+              <span
                 className="hero-main-title"
                 style={{ transform: `scale(${titleScale})` }}
               >
@@ -45,20 +52,20 @@ const Hero = ({ scrollY }) => {
               <span className="text-gradient"> Smart Technology</span>
             </h1>
             <p className="hero-description">
-              Experience the next generation of connected devices with TechNova's 
+              Experience the next generation of connected devices with TechNova's
               revolutionary smart ecosystem. Where innovation meets elegance.
             </p>
             <div className="hero-actions">
-              <a href="#devices" className="btn btn-primary">
+              <Link to="/products" className="btn btn-primary">
                 Explore Devices <ArrowRight size={20} />
-              </a>
-              <a href="#innovation" className="btn btn-secondary">
+              </Link>
+              <Link to="/innovation" className="btn btn-secondary">
                 Learn More
-              </a>
+              </Link>
             </div>
           </div>
 
-          <div className="hero-visual">
+          {/* <div className="hero-visual">
             <div className="device-showcase">
               {devices.map((device, index) => {
                 const Icon = device.icon
@@ -88,7 +95,7 @@ const Hero = ({ scrollY }) => {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -254,6 +261,18 @@ const Hero = ({ scrollY }) => {
           transform: scale(1.2);
         }
 
+        .hyperspeed-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -292,6 +311,7 @@ const Hero = ({ scrollY }) => {
             height: 250px;
           }
         }
+
       `}</style>
     </section>
   )

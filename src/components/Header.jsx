@@ -1,33 +1,41 @@
-import { useState, useEffect } from 'react'
-import { Menu, X, Zap } from 'lucide-react'
+import { useState, useEffect } from 'react';
+import { Menu, X, Zap } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
-const Header = ({ scrollY }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    setIsScrolled(scrollY > 50)
-  }, [scrollY])
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsMenuOpen(false); // close menu when route changes
+  }, [location]);
 
   const navItems = [
-    { label: 'Home', href: '#home' },
-    { label: 'Devices', href: '#devices' },
-    { label: 'Innovation', href: '#innovation' },
-    { label: 'Contact', href: '#contact' }
-  ]
+    { label: 'Home', to: '/' },
+    { label: 'Products', to: '/products' },
+    { label: 'Trending', to: '/trending' },
+    { label: 'Team', to: '/team' },
+  ];
 
   return (
-    <header 
-      className={`header ${isScrolled ? 'header-scrolled' : ''}`}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-      }}
-    >
+    <header className={`header ${isScrolled ? 'header-scrolled' : ''}`} style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 1000,
+      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+    }}>
       <div className="container">
         <nav className="nav">
           <div className="nav-brand">
@@ -37,18 +45,17 @@ const Header = ({ scrollY }) => {
 
           <div className={`nav-menu ${isMenuOpen ? 'nav-menu-open' : ''}`}>
             {navItems.map((item, index) => (
-              <a
+              <Link
                 key={index}
-                href={item.href}
+                to={item.to}
                 className="nav-link"
-                onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
-            <a href="#contact" className="btn btn-primary nav-cta">
+            <Link to="/contact" className="btn btn-primary nav-cta">
               Get Started
-            </a>
+            </Link>
           </div>
 
           <button
@@ -61,6 +68,7 @@ const Header = ({ scrollY }) => {
         </nav>
       </div>
 
+      {/* Style remains the same */}
       <style jsx>{`
         .header {
           background: rgba(10, 10, 15, 0.8);
@@ -178,7 +186,8 @@ const Header = ({ scrollY }) => {
         }
       `}</style>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
+

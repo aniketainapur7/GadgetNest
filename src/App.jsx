@@ -7,6 +7,8 @@ import ProductSpotlight from './components/ProductSpotlight'
 import TechOfTheYear from './components/TechOfTheYear'
 import Footer from './components/Footer'
 import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import PageLayout from './layout/PageLayout'
 
 function App() {
   const [scrollY, setScrollY] = useState(0)
@@ -31,12 +33,16 @@ function App() {
 
   return (
     <div className="app">
-      <Header scrollY={scrollY} />
-      <Hero scrollY={scrollY} />
-      {/* <DeviceShowcase />
-      <ProductSpotlight />
-      <TechOfTheYear /> */}
-      <Footer />
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PageLayout />}>
+          <Route index element={<Hero />} />
+          <Route path="products" element={<DeviceShowcase />} />
+          <Route path="trending" element={<TechOfTheYear />} />
+          {/* <Route path="team" element={<ProductSpotlight />} /> */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
     </div>
   )
 }

@@ -39,7 +39,7 @@ function App() {
           <Route index element={<Hero />} />
           <Route path="products" element={<DeviceShowcase />} />
           <Route path="trending" element={<TechOfTheYear />} />
-          {/* <Route path="team" element={<ProductSpotlight />} /> */}
+          {/* <Route path="team" element={<Team page />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

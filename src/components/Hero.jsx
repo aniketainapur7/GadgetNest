@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { ArrowRight, Smartphone, Watch, Headphones } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import Hyperspeed from '../HyperSpeed'
+import Hyperspeed from '../Hyperspeed'
 
 const Hero = ({ scrollY }) => {
   const [currentDevice, setCurrentDevice] = useState(0)

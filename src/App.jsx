@@ -6,7 +6,7 @@ import TechOfTheYear from './components/TechOfTheYear'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PageLayout from './layout/PageLayout'
-import Teampage from './components/Teampage'
+import Teampage from './components/TeamPage'
 import TrendingProducts from './components/TrendingProducts'
 
 

@@ -59,8 +59,8 @@ const Hero = ({ scrollY }) => {
               <Link to="/products" className="btn btn-primary">
                 Explore Devices <ArrowRight size={20} />
               </Link>
-              <Link to="/innovation" className="btn btn-secondary">
-                Learn More
+              <Link to="/trending" className="btn btn-secondary">
+                Trending
               </Link>
             </div>
           </div>
@@ -106,7 +106,7 @@ const Hero = ({ scrollY }) => {
           align-items: center;
           position: relative;
           overflow: hidden;
-          padding-top: calc(var(--spacing) * 10);
+          padding-top: 1px;
         }
 
         .hero-background {

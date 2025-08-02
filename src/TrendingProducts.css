@@ -1,0 +1,89 @@
+.trending-section {
+  background: linear-gradient(to bottom right, #0c011a, #120d23);
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background-color: #1a102b;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.5);
+  color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+.product-info {
+  padding: 1rem;
+  text-align: left;
+}
+
+.product-info h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.product-info p {
+  margin: 0;
+  color: #bbb;
+}

@@ -1,0 +1,109 @@
+:root {
+  --neon-blue: #00f2ff;
+  --marquee-speed: 25s;
+}
+
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 3rem 0;
+  background: linear-gradient(to right, #050013, #0c0120);
+  position: relative;
+  border-top: 1px solid rgba(0, 242, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 242, 255, 0.15);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scrollMarquee var(--marquee-speed) linear infinite;
+  will-change: transform;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  flex: none;
+  width: 260px;
+  margin-right: 3rem;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 242, 255, 0.1);
+  box-shadow:
+    0 0 8px rgba(0, 255, 255, 0.1),
+    0 0 24px rgba(0, 255, 255, 0.05),
+    inset 0 0 10px rgba(0, 255, 255, 0.02);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.marquee-item:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.25),
+    0 0 30px rgba(0, 255, 255, 0.2),
+    inset 0 0 12px rgba(0, 255, 255, 0.1);
+}
+
+.marquee-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  transition: transform 0.4s ease;
+}
+
+.marquee-item:hover img {
+  transform: scale(1.05);
+}
+
+.marquee-item p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px rgba(0, 242, 255, 0.4);
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 768px) {
+  .marquee-item {
+    width: 180px;
+    margin-right: 1rem;
+  }
+
+  .marquee-item img {
+    height: 140px;
+  }
+}
+.marquee-container::before,
+.marquee-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, #0c011a 60%, transparent);
+}
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, #0c011a 60%, transparent);
+}

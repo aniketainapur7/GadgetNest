@@ -6,6 +6,10 @@ import TechOfTheYear from './components/TechOfTheYear'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PageLayout from './layout/PageLayout'
+import Teampage from './components/Teampage'
+import TrendingProducts from './components/TrendingProducts'
+
+
 
 function App() {
   const [scrollY, setScrollY] = useState(0)
@@ -35,8 +39,9 @@ function App() {
         <Route path="/" element={<PageLayout />}>
           <Route index element={<Hero />} />
           <Route path="products" element={<DeviceShowcase />} />
-          <Route path="trending" element={<TechOfTheYear />} />
-          {/* <Route path="team" element={<Team page />} /> */}
+          <Route path="trending" element={<TrendingProducts />} />
+          <Route path="team" element={<Teampage />} />
+          <Route path="tech-of-year" element={<TechOfTheYear />} />
         </Route>
       </Routes>
     </BrowserRouter>

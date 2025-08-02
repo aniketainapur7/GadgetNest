@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Zap } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { Crown } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,7 +41,10 @@ const Header = () => {
         <nav className="nav">
           <div className="nav-brand">
             <Zap className="brand-icon" />
-            <span className="brand-text">TechNova</span>
+            <Link to={'/'}>
+            <span className="brand-text">GadgetNest</span>
+            </Link>
+            
           </div>
 
           <div className={`nav-menu ${isMenuOpen ? 'nav-menu-open' : ''}`}>
@@ -53,8 +57,9 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-            <Link to="/contact" className="btn btn-primary nav-cta">
-              Get Started
+            <Link to="/tech-of-year" className="btn btn-primary nav-cta">
+              <Crown size={20} />
+              Tech Of The Year
             </Link>
           </div>
 

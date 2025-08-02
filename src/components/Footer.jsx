@@ -35,7 +35,7 @@ const Footer = () => {
   ]
 
   const contactInfo = [
-    { icon: Mail, text: 'hello@technova.com' },
+    { icon: Mail, text: 'hello@gadgetnest.com' },
     { icon: Phone, text: '+1 (555) 123-4567' },
     { icon: MapPin, text: 'San Francisco, CA' }
   ]
@@ -52,7 +52,7 @@ const Footer = () => {
           <div className="footer-brand">
             <div className="brand-logo">
               <Zap className="brand-icon" />
-              <span className="brand-text">TechNova</span>
+              <span className="brand-text">GadgetNest</span>
             </div>
             <p className="brand-description">
               Pioneering the future of smart technology with innovative devices 

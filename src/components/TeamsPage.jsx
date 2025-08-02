@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Users, Code, Brain, Server, Github, Linkedin, Twitter, Mail, MapPin, Star } from "lucide-react"
 
-const TeamPage = () => {
+function TeamsPage() {
   const [hoveredMember, setHoveredMember] = useState(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
@@ -966,4 +966,4 @@ const TeamPage = () => {
   )
 }
 
-export default TeamPage
+export default TeamsPage

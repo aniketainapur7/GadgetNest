@@ -6,8 +6,9 @@ import TechOfTheYear from './components/TechOfTheYear'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PageLayout from './layout/PageLayout'
-import Teampage from './components/TeamPage'
 import TrendingProducts from './components/TrendingProducts'
+import TeamsPage from './components/TeamsPage'
+
 
 
 
@@ -40,7 +41,7 @@ function App() {
           <Route index element={<Hero />} />
           <Route path="products" element={<DeviceShowcase />} />
           <Route path="trending" element={<TrendingProducts />} />
-          <Route path="team" element={<Teampage />} />
+          <Route path="team" element={<TeamsPage/>} />
           <Route path="tech-of-year" element={<TechOfTheYear />} />
         </Route>
       </Routes>

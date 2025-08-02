@@ -51,7 +51,7 @@ const Loader = () => {
             <Zap className="brand-icon" />
             <div className="icon-glow"></div>
           </div>
-          <h1 className="brand-name">TechNova</h1>
+          <h1 className="brand-name">GadgetNest</h1>
         </div>
 
         <div className="loading-progress">

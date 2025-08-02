@@ -23,12 +23,13 @@
 
 ### ✨ Key Features
 
-🛒 **Smart Shopping Cart** - Dynamic cart with real-time updates and persistent storage  
-🔍 **Advanced Search & Filter** - Find your perfect gadget with intelligent filtering  
-📱 **Responsive Design** - Optimized for all devices and screen sizes  
-⚡ **Lightning Fast** - Built with Vite for optimal performance  
-🎨 **Modern UI/UX** - Clean, intuitive interface with smooth animations  
-🔐 **Secure Checkout** - Safe and secure payment processing  
+
+- 🛒 **Trending Products** section with hover animations and transitions
+- 🔥 Scroll-triggered animations using IntersectionObserver & Framer Motion
+- 🧠 Smart filtering and categorization of gadgets
+- ⚙️ Responsive UI with custom CSS
+- ⏱️ Countdown timer for "Tech of the Year"
+- 🌍 Ready to be deployed on Vercel
 
 
 ---
